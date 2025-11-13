@@ -7,7 +7,7 @@ import type { Service } from '@/types'
 export async function generateStaticParams() {
   const services = await getServices();
   
-  return services.map((service) => ({
+  return services.map((service: Service) => ({
     slug: service.slug,
   }));
 }
@@ -96,7 +96,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <div className="bg-gradient-to-br from-primary/5 to-primary-light/10 rounded-xl p-8">
               <h2 className="text-2xl font-bold mb-6">مميزات الخدمة</h2>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {serviceData.metadata.features.map((feature, index) => (
+                {serviceData.metadata.features.map((feature: string, index: number) => (
                   <li key={index} className="flex items-start">
                     <svg className="w-6 h-6 text-accent ml-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

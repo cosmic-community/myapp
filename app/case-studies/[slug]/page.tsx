@@ -7,7 +7,7 @@ import type { CaseStudy } from '@/types'
 export async function generateStaticParams() {
   const caseStudies = await getCaseStudies();
   
-  return caseStudies.map((caseStudy) => ({
+  return caseStudies.map((caseStudy: CaseStudy) => ({
     slug: caseStudy.slug,
   }));
 }
@@ -141,7 +141,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <div className="mb-12">
               <h2 className="text-2xl font-bold mb-6">معرض الصور</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {caseStudyData.metadata.gallery.map((image, index) => (
+                {caseStudyData.metadata.gallery.map((image: { url: string; imgix_url: string }, index: number) => (
                   <div key={index} className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
                     <img 
                       src={`${image.imgix_url}?w=600&h=400&fit=crop&auto=format,compress`}

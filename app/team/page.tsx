@@ -22,7 +22,7 @@ export default async function TeamPage() {
 
         {team.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {team.map((member) => (
+            {team.map((member: TeamMember) => (
               <TeamMemberCard key={member.id} member={member as TeamMember} />
             ))}
           </div>
